@@ -1,0 +1,15 @@
+data_root: '/datasets/KITTI/object'
+classes: ['Car', 'Pedestrian', 'Cyclist']
+cams_keys: ['CAM2']
+default_cam: 'CAM2'
+pc_color_param:
+  image_shape: [370, 1240]
+box_color_param:
+  min_points_list: [0, 5, 100, 100000]
+pc_filter_param:
+  image_shape: [370, 1240]
+  limit_range: [0, -40, -3, 70.4, 40, 1]
+box_filter_param:
+  image_shape: [370, 1240]
+  limit_range: [0, -40, -3, 70.4, 40, 1]
+  min_points: 5

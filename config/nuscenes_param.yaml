@@ -1,0 +1,23 @@
+dataset_vis_node:
+  ros__parameters:
+    # 发布图片选项
+    pub_image_with_box: True      # 是否发布带检测框的图片
+    pub_image_with_points: True   # 是否发布带投影点云点的图片
+    pub_bbox_attr: False           # 是否在点云中显示检测框的属性
+    # 点云颜色渲染
+    pc_color_method: 'intensity'  # choice=['intensity']
+    # 边界框颜色渲染
+    box_color_method: 'label'     # choice=['label', 'num_points_in_gt']
+    # 点云过滤
+    pc_filter_method:
+      range: True                 # 是否根据设定范围过滤点云
+    # 边界框过滤
+    bbox_filter_method:
+      range: True                 # 是否根据设定范围过滤检测框
+      num_points: False           # 是否过滤框内点数小于设定点数的检测框
+    # 根据场景描述字段播放选中字段的点云帧
+    scene_filter_keys:
+      night: False
+      rain: False
+      reflections: False
+      nature: False
