@@ -27,7 +27,9 @@ class DatasetVisualizer:
             colors = [colormap[b['info']['difficulty']] for b in boxes3d]
         elif method == 'num_points_in_gt':
             num_points_in_gt = np.array([b['info']['num_points_in_gt'] for b in boxes3d])
-            colors = [colormap[np.argmax(param['level'] >= num_pts)] for num_pts in num_points_in_gt]
+            colors = [colormap[np.argmax(param['min_points_list'] >= num_pts)] for num_pts in num_points_in_gt]
+        else:
+            colors = [colormap[0] for i in range(boxes3d.shape[0])]
         return np.array(colors)
 
     def filter_point_cloud(self, idx, points, method=[], param=None):

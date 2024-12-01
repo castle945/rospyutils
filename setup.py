@@ -13,6 +13,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*.launch.py'))),
         (os.path.join('share', package_name, 'rviz'), glob(os.path.join('rviz', '*.rviz'))),
+        (os.path.join('share', package_name, 'config'), glob(os.path.join('config', '*.y[am]*l'))),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -24,8 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'teleop_key_node = rospyutils.teleop_key_node:main',
-            'pcdet_vis_kitti_dataset_node = rospyutils.pcdet_vis_kitti_dataset_node:main',
-            'pcdet_vis_nus_dataset_node = rospyutils.pcdet_vis_nus_dataset_node:main',
+            'pcdet_dataset_vis_node = rospyutils.pcdet_dataset_vis_node:main',
         ],
     },
 )
