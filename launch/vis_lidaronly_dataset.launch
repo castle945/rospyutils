@@ -1,0 +1,18 @@
+<launch>
+    <arg name="pkl" default="/tmp/pu4c/lidarcs_infos_train.pkl" />
+    <param name="pkl" value="$(arg pkl)" />
+
+    <arg name="start_idx" default="0" />
+    <param name="start_idx" value="$(arg start_idx)" />
+
+    <arg name="eval_pkls" default="[]" />
+    <rosparam param="eval_pkls" subst_value="True">$(arg eval_pkls)</rosparam>
+
+    <node pkg="rospyutils" type="pcdet_vis_lidaronly_dataset_node.py" name="pcdet_vis_lidaronly_dataset_node" output="screen" />
+
+    <arg name="rviz" default="false" />
+    <group if="$(arg rviz)">
+        <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find rospyutils)/rviz/vis_lidaronly_dataset.rviz" />
+    </group>
+
+</launch>

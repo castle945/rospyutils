@@ -1,0 +1,15 @@
+<launch>
+    <arg name="pkl" default="/tmp/pu4c/nuscenes_vis_infos_val.pkl" />
+    <param name="pkl" value="$(arg pkl)" />
+
+    <arg name="start_idx" default="0" />
+    <param name="start_idx" value="$(arg start_idx)" />
+
+    <node pkg="rospyutils" type="pcdet_vis_nus_dataset_node.py" name="pcdet_vis_nus_dataset_node" output="screen" />
+
+    <arg name="rviz" default="false" />
+    <group if="$(arg rviz)">
+        <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find rospyutils)/rviz/vis_nus_dataset.rviz" />
+    </group>
+
+</launch>
